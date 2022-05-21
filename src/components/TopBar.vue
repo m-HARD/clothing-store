@@ -67,12 +67,6 @@
           <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
             Home
           </li>
-          <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-            About
-          </li>
-          <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-            Contact Us
-          </li>
         </ul>
       </nav>
     </div>
