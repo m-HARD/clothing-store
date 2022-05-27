@@ -127,6 +127,6 @@ export default {
     return {
       showMenu: false,
     };
-  },
+  }
 };
 </script>
