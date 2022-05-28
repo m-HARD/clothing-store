@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div block>
         
         
 
@@ -69,7 +69,7 @@
         <div class="grid grid-cols-1 gap-8 mx-8 mt-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
 
             <div v-for="clothe in clotheData" v-bind:key="clothe.id" class="flex flex-col items-center justify-center w-full max-w-lg mx-auto bg-white border-2 shadow-md rounded-md overflow-hidden">
-                <img class="object-cover w-full h-72 xl:h-80" v-bind:src="'src/assets/img/' + clothe.imgName" alt="T-Shirt">
+                <img class="object-cover w-full h-72 xl:h-80" :src="require('@/img/' + clothe.imgName)" alt="T-Shirt">
                 <h4 class="mt-2 text-lg font-medium text-gray-700" v-text="clothe.name"></h4>
                 <div class="w-full px-2">
                     <span class="">تمساح<span></span></span>
@@ -100,9 +100,11 @@
 
 
 <script>
+    import img from '../assets/img/1.jpg'
     export default {
         data() {
             return {
+                img:img,
                 clotheData:[
                     {id:1,name:'قميص',description:'تمساح',imgName:'1.jpg',bestSeller:true,sizes:[],colors:[],price:0},
                     {id:2,name:'فستان',description:'تمساح',imgName:'2.jpg',bestSeller:false,sizes:[],colors:[],price:0},
@@ -121,6 +123,15 @@
                 })
             },
         },
+        methods:{
+            getUrl(imgName){
+                return new URL('../assets/img/'+ imgName , import.meta.url).href;
+            },
+            getURL(pic){
+                var images = require.context('../assets/img', false, /\.jpg$/)
+                return images('./' + pic + ".jpg")
+            }
+        }
         
     };
 </script>
